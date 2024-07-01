@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Stage 2</title>
+  </head>
+  <body>
+    <div class="container" data-testid="container">
+      <h1 data-testid="main-title">My Goals for the Next 2 Years</h1>
+      <div class="sharp">
+        <div class="profile-section">
+          <img
+            src="./images/hqup1f.jpg"
+            alt="Slack Profile Picture"
+            data-testid="slackProfilePicture"
+            width="100"
+            height="100"
+          />
+          <div class="name">
+            <p data-testid="slackDisplayName">Boblee</p>
+            <a href="mailto:ayomiposiaborisade6@gmail.com" data-testid="slackEmail"
+              >ayomiposiaborisade6@gmail.com</a
+            >
+          </div>
+        </div>
+
+        <div class="date" data-testid="date-container">
+          <p>
+            Current Date:
+            <span id="current-date" data-testid="current-date"></span>
+          </p>
+          <p>
+            Current Time (UTC):
+            <span id="current-time-utc" data-testid="currentTimeUTC"></span>
+          </p>
+          <p>
+            Current Day: <span id="current-day" data-testid="currentDay"></span>
+          </p>
+        </div>
+      </div>
+
+      <h2 data-testid="goals-title">Goals</h2>
+      <ul data-testid="goals-list">
+        <li data-testid="goal-1">
+          Develop a comprehensive understanding of frontend development and
+          various frameworks.
+        </li>
+        <li data-testid="goal-2">
+          Contribute to and collaborate on a range of open source projects.
+        </li>
+        <li data-testid="goal-3">
+          Expand my skills to include backend development, aiming to become a
+          proficient full-stack developer.
+        </li>
+        <li data-testid="goal-4">
+          Transition into Web 3.0 development, learning languages such as
+          Solidity.
+        </li>
+        <li data-testid="goal-5">
+          Enhance my proficiency in TypeScript and JavaScript to build robust
+          and scalable applications.
+        </li>
+        <li data-testid="goal-6">
+          Engage in continuous learning through online courses, workshops, and
+          developer communities.
+        </li>
+        <li data-testid="goal-7">
+          Network with industry professionals to stay updated with the latest
+          trends and best practices in web development.
+        </li>
+        <li data-testid="goal-8">
+          Participate in hackathons and coding challenges to sharpen my
+          problem-solving skills and creativity.
+        </li>
+      </ul>
+
+      <div class="links outside">
+        <a href="https://hng.tech/learn" target="_blank" data-testid="hngLink"
+          >HNG Learn</a
+        >
+        <a href="https://keyword.dog" target="_blank" data-testid="keywordLink"
+          >Keyword Dog</a
+        >
+        <a
+          href="https://scrapeanyweb.site"
+          target="_blank"
+          data-testid="scrapeanywebLink"
+          >Scrape Any Web</a
+        >
+      </div>
+    </div>
+
+    <script>
+      const dateElement = document.getElementById("current-date");
+      const timeElement = document.getElementById("current-time-utc");
+      const dayElement = document.getElementById("current-day");
+
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      const today = new Date();
+      const formattedDate = today.toLocaleDateString(undefined, options);
+      dateElement.textContent = formattedDate;
+
+      const utcOptions = {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      };
+      const currentTimeUTC = today.toLocaleTimeString("en-GB", utcOptions);
+      timeElement.textContent = currentTimeUTC;
+
+      const daysOfWeek = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const currentDay = daysOfWeek[today.getUTCDay()];
+      dayElement.textContent = currentDay;
+    </script>
+  </body>
+</html>
